@@ -22,9 +22,26 @@ void split1(const std::string& str, Container& cont)
          std::back_inserter(cont));
 }
 
+string Smalleter (string s){
+int len=s.size();
+string ans="";
+for(int i =0;i<len;i++)
+{
+  char c =tolower(s.at(i));
+ ans= ans+ c;
+ }
+ //cout <<"testing------" << ans << endl;
+return ans;
 
-int cmpString (string s1,string s2){
-bool eql =true;
+
+}
+
+int cmpString (string s,string word){
+string s1= Smalleter ( s);
+string s2 =Smalleter ( word);
+// cout<<"testing---"<<s1<<endl;
+// cout<<"testing---"<<s2<<endl;
+
 if(s1.size()!=s2.size()) return -1;
 if((s1.compare(s2)) == 0) return 0;
 for(int i=0;i<s1.size();i++){
@@ -72,9 +89,7 @@ string find(string text,string word)
    if(cmpString(s,word) == 0) return s;
 
   }
-  //throw logic_error{"word not found"};
-  return "word not aound "; 
+  throw logic_error{"word not found"};
+ // return "word not found "; 
 }
-
-
  }

@@ -14,6 +14,7 @@ TEST_CASE("Test replacement of p and b") {
     CHECK(find(text, "habby") == string("happy"));
     CHECK(find(text, "hapby") == string("happy"));
     CHECK(find(text, "habpy") == string("happy"));
+    CHECK_THROWS(find(text,"happ"));
 }
 
 TEST_CASE("Test replacement of lower-case and upper-case") {
@@ -22,7 +23,7 @@ TEST_CASE("Test replacement of lower-case and upper-case") {
     CHECK(find(text, "Happi") == string("Happi"));
     CHECK(find(text, "HAPPI") == string("Happi"));
     CHECK(find(text, "HaPpI") == string("Happi"));
-    /* Add more checks here */
+    CHECK_THROWS(find(text,"happ"));
 }
 
 TEST_CASE("Test replacement of v and w") {
@@ -43,6 +44,7 @@ TEST_CASE("Test replacement of v and w") {
     CHECK(find(text, "woWvv") == string("woWVv"));
     CHECK(find(text, "woWwv") == string("woWVv"));
     CHECK(find(text, "woWWv") == string("woWVv"));
+       CHECK_THROWS(find(text,"happ"));
 
 }
 TEST_CASE("Test replacement of b,f and p") {
@@ -88,6 +90,8 @@ CHECK(find(text, "bBfFpb") == string("bBfFpP"));
 CHECK(find(text, "bBfFpB") == string("bBfFpP"));
 CHECK(find(text, "bBfFpf") == string("bBfFpP"));
 CHECK(find(text, "bBfFpF") == string("bBfFpP"));
+    CHECK_THROWS(find(text,"happ"));
+
 }                                    
 TEST_CASE("Test replacement of d and t") {
     string text = "Uriel and Yair are the best ";
@@ -99,6 +103,8 @@ TEST_CASE("Test replacement of d and t") {
     CHECK(find(text, "beZt") == string("best"));
     CHECK(find(text, "beZT") == string("best"));
     CHECK(find(text, "bezT") == string("best"));
+        CHECK_THROWS(find(text,"happ"));
+
 }
 TEST_CASE("Test replacement of o and u") {
     string text = "Uriel and Yair are the best";
@@ -109,6 +115,8 @@ TEST_CASE("Test replacement of o and u") {
     CHECK(find(text, "UrIel") == string("Uriel"));
     CHECK(find(text, "URIEL") == string("Uriel"));
     CHECK(find(text, "URIEl") == string("Uriel"));
+        CHECK_THROWS(find(text,"happ"));
+
 }
 TEST_CASE("Test replacement of i and y") {
     string text = "Uriel and Yair are the best";
@@ -123,6 +131,10 @@ TEST_CASE("Test replacement of i and y") {
     CHECK(find(text, "yaYr") == string("Yair"));
     CHECK(find(text, "yayr") == string("Yair"));
    CHECK(find(text, "YaYr") == string("Yair"));
+       CHECK_THROWS(find(text,"happ"));
+
+    CHECK_THROWS(find(text,"happ"));
+
 
 }
 
@@ -139,6 +151,8 @@ TEST_CASE("Test replacement of s and z") {
     CHECK(find(text, "SebrA") == string("zebra"));
      CHECK(find(text, "seBra") == string("zebra"));
      CHECK(find(text, "seBrA") == string("zebra"));
+         CHECK_THROWS(find(text,"happ"));
+
 
 }
 
@@ -152,5 +166,7 @@ TEST_CASE("Test replacement of big letter and small letter") {
     CHECK(find(text, "yAIR") == string("Yair"));
     CHECK(find(text, "IAIR") == string("Yair"));   
      CHECK(find(text, "pest") == string("best"));
+         CHECK_THROWS(find(text,"happ"));
+
 
 }
